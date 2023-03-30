@@ -57,24 +57,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Tom&apos;s Terrain Tools\Scripts\SpawnInArea.cs" />
+    <Compile Include="Assets\Charecter\Scripts\CharacterIK.cs" />
+    <Compile Include="Assets\Charecter\Scripts\CameraHandler.cs" />
     <Compile Include="Assets\Tom&apos;s Terrain Tools\Scripts\ForceGrassDistanceInEditor.cs" />
     <Compile Include="Assets\Tom&apos;s Terrain Tools\Scripts\TerrainQualitySettings.cs" />
     <Compile Include="Assets\Tom&apos;s Terrain Tools\Example Data\Scripts\SimpleSmoothMouseLook.cs" />
     <Compile Include="Assets\Tom&apos;s Terrain Tools\2DTools\Scripts\CircleMoverSample.cs" />
+    <Compile Include="Assets\Charecter\Scripts\Props\CharacterStatus.cs" />
+    <Compile Include="Assets\Charecter\Scripts\Props\CameraConfig.cs" />
     <Compile Include="Assets\Charecter\Scripts\Controller.cs" />
     <Compile Include="Assets\Scripts\DayCircle.cs" />
+    <Compile Include="Assets\Charecter\Scripts\ArrowController.cs" />
     <Compile Include="Assets\Tom&apos;s Terrain Tools\Scripts\TreeExplosion.cs" />
     <Compile Include="Assets\Tom&apos;s Terrain Tools\Scripts\PlaceOnSurfaceAtStart.cs" />
+    <Compile Include="Assets\Charecter\Scripts\LookAtTarget.cs" />
     <Compile Include="Assets\Tom&apos;s Terrain Tools\2DTools\Scripts\Camera2DFollow.cs" />
     <Compile Include="Assets\Tom&apos;s Terrain Tools\Scripts\KeepOnSurface.cs" />
-    <Compile Include="Assets\Tom&apos;s Terrain Tools\Example Data\Scripts\PlayerHoverController.cs" />
-    <Compile Include="Assets\Charecter\Scripts\Props\CameraConfig.cs" />
-    <Compile Include="Assets\Charecter\Scripts\CameraHandler.cs" />
-    <Compile Include="Assets\Charecter\Scripts\Props\CharacterStatus.cs" />
-    <Compile Include="Assets\Charecter\Scripts\CharacterIK.cs" />
     <Compile Include="Assets\Charecter\Scripts\CharacterInput.cs" />
-    <Compile Include="Assets\Charecter\Scripts\LookAtTarget.cs" />
-    <Compile Include="Assets\Charecter\Scripts\ArrowController.cs" />
+    <Compile Include="Assets\Tom&apos;s Terrain Tools\Example Data\Scripts\PlayerHoverController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tom&apos;s Terrain Tools\Example Data\Terragen Sources\README.txt" />
