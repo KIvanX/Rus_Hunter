@@ -51,6 +51,9 @@ public class CameraHandler : MonoBehaviour
             targetZ = cameraConfig.aimZ;
         }
 
+        if (characterStatus.isCrouching)
+            targetY = cameraConfig.aimY;
+
         if (isLeftPivot)
             targetX = -targetX;
 

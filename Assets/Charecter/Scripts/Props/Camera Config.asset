@@ -22,4 +22,5 @@ MonoBehaviour:
   normalY: 1.9
   normalZ: -1.72
   aimX: 0.4
+  aimY: 1.4
   aimZ: -1

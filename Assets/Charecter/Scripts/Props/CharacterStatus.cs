@@ -7,4 +7,5 @@ public class CharacterStatus : ScriptableObject
 {
     public bool isSprinting;
     public bool isAiming;
+    public bool isCrouching;
 }

@@ -15,5 +15,6 @@ public class CameraConfig : ScriptableObject
     public float normalY;
     public float normalZ;
     public float aimX;
+    public float aimY;
     public float aimZ;
 }
