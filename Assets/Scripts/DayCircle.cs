@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DayCircle : MonoBehaviour
 {
@@ -10,9 +11,20 @@ public class DayCircle : MonoBehaviour
     public Light Moon;
     public AnimationCurve sun_curve;
     private float sun_intensity;
+    public GameObject wolf_obj;
+    public Terrain terrain;
+    public Image image;
+
 
     void Start()
     {
+        for (int i=0; i<10; i++) {
+            float x = Random.Range(0f, 100f), z = Random.Range(0f, 100f);
+            float y = terrain.SampleHeight(new Vector3(x, 0f, z));
+            GameObject wolf = Instantiate(wolf_obj);
+            wolf.transform.position = new Vector3(x, y, z);
+        }
+        
         sun_intensity = Sun.intensity;
     }
 
