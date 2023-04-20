@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using static UnityEngine.GridBrushBase;
+using UnityEngine.UI;
 
 public class Controller : MonoBehaviour
 {
@@ -31,17 +31,21 @@ public class Controller : MonoBehaviour
     public Transform arrowInHand;
     public GameObject arrowPrefab;
 
+    private Image HPBar;
+    private float HP = 100;
+
     void Start()
     {
         animator = GetComponent<Animator>();
         rigid_body = GetComponent<Rigidbody>();
         speed = walkSpeed;
+        HPBar = GameObject.FindGameObjectWithTag("HP_bar").GetComponent<Image>();
     }
 
     void Update()
     {
         #region Sprint Control
-        if (Input.GetButtonDown("Sprint") && !characterStatus.isAiming)
+        if (Input.GetButtonDown("Sprint") && !characterStatus.isAiming && !characterStatus.isCrouching)
         {
             characterStatus.isSprinting = !characterStatus.isSprinting;
             if (characterStatus.isSprinting)
@@ -52,7 +56,7 @@ public class Controller : MonoBehaviour
         #endregion
 
         #region Movement Control
-        if (!characterStatus.isSprinting)
+        if (!characterStatus.isSprinting || characterStatus.isCrouching)
         {
             if (Input.GetKey(KeyCode.W))
                 transform.localPosition += speed * Time.deltaTime * transform.forward;
@@ -87,7 +91,6 @@ public class Controller : MonoBehaviour
         #endregion
 
         #region Shooting Control
-        Physics.IgnoreCollision(GetComponent<Collider>(), arrowInHand.GetComponent<Collider>());
         if (characterStatus.isAiming)
         {   
             if (characterStatus.isSprinting)
@@ -97,17 +100,20 @@ public class Controller : MonoBehaviour
             }
 
             arrowInHand.gameObject.SetActive(true);
+            if (Input.GetButtonDown("Fire1"))
+                characterStatus.isStretching = true;
             if (Input.GetButtonUp("Fire1"))
             {
                 GameObject newArrow = Instantiate(arrowPrefab, arrowInHand.position, arrowInHand.rotation);
-                newArrow.GetComponent<Rigidbody>().isKinematic = false;
-                newArrow.GetComponent<Rigidbody>().AddForce(arrowInHand.up * force, ForceMode.Impulse);
+                ArrowController.Shoot(newArrow, arrowInHand.up, force * animator.GetFloat("drawForce"));
+                characterStatus.isStretching = false;
             }
         }
         else
             arrowInHand.gameObject.SetActive(false);
         #endregion
 
+        #region Crouch
         if (Input.GetButtonDown("Crouch"))
         {
             characterStatus.isCrouching = true;
@@ -118,6 +124,7 @@ public class Controller : MonoBehaviour
             characterStatus.isCrouching = false;
             speed = GetCurrentSpeed();
         }
+        #endregion
 
         UpdateMovement();
         UpdateAnimation();
@@ -132,6 +139,7 @@ public class Controller : MonoBehaviour
         animator.SetBool("isAiming", characterStatus.isAiming);
         animator.SetBool("isSprinting", characterStatus.isSprinting);
         animator.SetBool("isCrouching", characterStatus.isCrouching);
+        animator.SetBool("isStretching", characterStatus.isStretching);
     }
 
     void UpdateMovement()
@@ -150,7 +158,7 @@ public class Controller : MonoBehaviour
 
     void RotateNormal()
     {
-        if (characterStatus.isSprinting)
+        if (characterStatus.isSprinting && !characterStatus.isCrouching)
             rotationDirection = moveDirection;
 
         Vector3 TargetDirection = rotationDirection;
@@ -170,5 +178,13 @@ public class Controller : MonoBehaviour
             return sprintSpeed;
         else
             return walkSpeed;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        HP -= damage;
+        HPBar.fillAmount = HP / 100;
+        if (HP <= 0)
+            Application.Quit();
     }
 }

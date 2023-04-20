@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wolf
       objectReference: {fileID: 0}
+    - target: {fileID: 175852, guid: f8243bb353e5cb74481bb26fe62fd298, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 477254, guid: f8243bb353e5cb74481bb26fe62fd298, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -124,8 +128,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1551338716542887614}
-  image: {fileID: 4953617118057013822, guid: 632d691691a4e6848888a67030ccacc0, type: 3}
-  playerHP: 100
 --- !u!195 &1198811196
 NavMeshAgent:
   m_ObjectHideFlags: 0
