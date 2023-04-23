@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class Controller : MonoBehaviour
 {
@@ -31,7 +31,7 @@ public class Controller : MonoBehaviour
     public Transform arrowInHand;
     public GameObject arrowPrefab;
 
-    private Image HPBar;
+    public UnityEvent<float> OnHPUpdate;
     private float HP = 100;
 
     void Start()
@@ -39,7 +39,6 @@ public class Controller : MonoBehaviour
         animator = GetComponent<Animator>();
         rigid_body = GetComponent<Rigidbody>();
         speed = walkSpeed;
-        HPBar = GameObject.FindGameObjectWithTag("HP_bar").GetComponent<Image>();
     }
 
     void Update()
@@ -74,7 +73,7 @@ public class Controller : MonoBehaviour
         }
         else
             if (Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal")) > 0)
-                transform.localPosition += speed * Time.deltaTime * transform.forward;
+            transform.localPosition += speed * Time.deltaTime * transform.forward;
         #endregion
 
         #region Falling
@@ -82,9 +81,10 @@ public class Controller : MonoBehaviour
             animator.SetBool("Falling", false);
         else
             animator.SetBool("Falling", true);
-            
+
         if (Input.GetButtonDown("Jump"))
-            if (Physics.CheckSphere(start_ray.position, 0.3f, not_player_mask)) {
+            if (Physics.CheckSphere(start_ray.position, 0.3f, not_player_mask))
+            {
                 animator.SetTrigger("Jump");
                 rigid_body.AddForce(Vector3.up * jump_power, ForceMode.Impulse);
             }
@@ -92,7 +92,7 @@ public class Controller : MonoBehaviour
 
         #region Shooting Control
         if (characterStatus.isAiming)
-        {   
+        {
             if (characterStatus.isSprinting)
             {
                 characterStatus.isSprinting = false;
@@ -183,7 +183,8 @@ public class Controller : MonoBehaviour
     public void TakeDamage(float damage)
     {
         HP -= damage;
-        HPBar.fillAmount = HP / 100;
+        OnHPUpdate.Invoke(HP);
+
         if (HP <= 0)
             Application.Quit();
     }

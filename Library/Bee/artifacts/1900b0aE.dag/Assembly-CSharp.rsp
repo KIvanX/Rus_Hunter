@@ -351,6 +351,7 @@
 "Assets/Charecter/Scripts/CharacterIK.cs"
 "Assets/Charecter/Scripts/CharacterInput.cs"
 "Assets/Charecter/Scripts/Controller.cs"
+"Assets/Charecter/Scripts/HPBar.cs"
 "Assets/Charecter/Scripts/LookAtTarget.cs"
 "Assets/Charecter/Scripts/Props/CameraConfig.cs"
 "Assets/Charecter/Scripts/Props/CharacterStatus.cs"

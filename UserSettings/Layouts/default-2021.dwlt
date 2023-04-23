@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 88
+  controlID: 100
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -418,22 +418,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Inventory/Items
+    - Assets/Inventory/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Inventory/Items
+  - Assets/Inventory/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: E:\Projects\Unity\Rus_Hunter
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 223}
-    m_SelectedIDs: 9c5d0000
-    m_LastClickedID: 23964
-    m_ExpandedIDs: 00000000e65c0000e85c0000ea5c0000ec5c0000ee5c0000f05c0000f25c0000f45c0000f65c0000f85c0000fa5c0000fc5c0000fe5c0000005d0000025d0000045d0000065d0000085d00007c5d000000ca9a3b
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 625e0000
+    m_LastClickedID: 24162
+    m_ExpandedIDs: 00000000005e0000025e0000045e0000065e0000085e00000a5e00000c5e00000e5e0000105e0000125e0000145e0000165e0000185e00001a5e00001c5e00001e5e0000205e0000225e0000425e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -461,7 +461,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e65c0000e85c0000ea5c0000ec5c0000ee5c0000f05c0000f25c0000f45c0000f65c0000f85c0000fa5c0000fc5c0000fe5c0000005d0000025d0000045d0000065d0000085d0000
+    m_ExpandedIDs: 00000000005e0000025e0000045e0000065e0000085e00000a5e00000c5e00000e5e0000105e0000125e0000145e0000165e0000185e00001a5e00001c5e00001e5e0000205e0000225e0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -591,9 +591,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 90aaffff
-      m_LastClickedID: -21872
-      m_ExpandedIDs: 36fbffff4c580000a8580000cc5800000e590000
+      m_SelectedIDs: b6590000
+      m_LastClickedID: 22966
+      m_ExpandedIDs: 36fbffff6c590000b6590000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -876,9 +876,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 87.38487, y: 5.485095, z: 233.9205}
+    m_Target: {x: 95.14, y: 3.4799998, z: 99.08}
     speed: 2
-    m_Value: {x: 87.38487, y: 5.485095, z: 233.9205}
+    m_Value: {x: 95.14, y: 3.4799998, z: 99.08}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -925,13 +925,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.056931544, y: 0.9369302, z: -0.18184464, w: 0.29321498}
+    m_Target: {x: -0.0010259486, y: 0.989511, z: -0.14470443, w: -0.007125267}
     speed: 2
-    m_Value: {x: 0.056931544, y: 0.93693024, z: -0.18184465, w: 0.293215}
+    m_Value: {x: -0.0010258853, y: 0.98945004, z: -0.14469552, w: -0.0071248277}
   m_Size:
-    m_Target: 4.0187125
+    m_Target: 0.5517151
     speed: 2
-    m_Value: 3.845658
+    m_Value: 0.527957
   m_Ortho:
     m_Target: 0
     speed: 2

@@ -781,6 +781,7 @@ GameObject:
   - component: {fileID: 696574802}
   - component: {fileID: 696574804}
   - component: {fileID: 696574803}
+  - component: {fileID: 696574805}
   m_Layer: 5
   m_Name: HP_bar
   m_TagString: HP_bar
@@ -846,6 +847,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 696574801}
   m_CullTransparentMesh: 1
+--- !u!114 &696574805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696574801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4417ae1fba250944d8e7fb064ee764d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -8132,6 +8145,21 @@ MonoBehaviour:
   characterStatus: {fileID: 11400000, guid: 78bac57f0c340b8469eee984532ccc8c, type: 2}
   arrowInHand: {fileID: 4534145672895398}
   arrowPrefab: {fileID: 1959729250425484, guid: 5187dfa4d8f19524e8bbf7c6894b7de7, type: 3}
+  OnHPUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 696574805}
+        m_TargetAssemblyTypeName: HPBar, Assembly-CSharp
+        m_MethodName: UpdateUI
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!136 &1898529982
 CapsuleCollider:
   m_ObjectHideFlags: 0
