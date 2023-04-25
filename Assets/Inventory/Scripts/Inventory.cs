@@ -19,6 +19,7 @@ public class InventorySlot
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private List<InventorySlot> _slots = new();
+    [SerializeField] private int _maxSize = 10;
 
     public UnityEvent OnInventoryUpdate;
 

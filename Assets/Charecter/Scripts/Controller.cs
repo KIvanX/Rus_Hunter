@@ -13,6 +13,7 @@ public class Controller : MonoBehaviour
         jump_power = 10,
         rotationSpeed = 0.4f,
         force = 20;
+    private float HP = 100;
     private float speed;
 
     public CharacterInput characterInput;
@@ -32,7 +33,7 @@ public class Controller : MonoBehaviour
     public GameObject arrowPrefab;
 
     public UnityEvent<float> OnHPUpdate;
-    private float HP = 100;
+    public UnityEvent OnInventoryOpen;
 
     void Start()
     {
@@ -124,6 +125,11 @@ public class Controller : MonoBehaviour
             characterStatus.isCrouching = false;
             speed = GetCurrentSpeed();
         }
+        #endregion
+
+        #region Inventory
+        if (Input.GetButtonDown("Inventory"))
+            OnInventoryOpen.Invoke();
         #endregion
 
         UpdateMovement();
