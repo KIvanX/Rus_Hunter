@@ -356,6 +356,7 @@
 "Assets/Charecter/Scripts/Props/CameraConfig.cs"
 "Assets/Charecter/Scripts/Props/CharacterStatus.cs"
 "Assets/Inventory/Scripts/CollectableItem.cs"
+"Assets/Inventory/Scripts/CraftList.cs"
 "Assets/Inventory/Scripts/InterfaceUI.cs"
 "Assets/Inventory/Scripts/Inventory.cs"
 "Assets/Inventory/Scripts/InventoryUI.cs"

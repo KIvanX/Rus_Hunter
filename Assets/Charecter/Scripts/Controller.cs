@@ -40,6 +40,9 @@ public class Controller : MonoBehaviour
         animator = GetComponent<Animator>();
         rigid_body = GetComponent<Rigidbody>();
         speed = walkSpeed;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()

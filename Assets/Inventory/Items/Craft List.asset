@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d33417823378f14ab20919e9b3584d9, type: 3}
+  m_Name: Craft List
+  m_EditorClassIdentifier: 
+  _craftList:
+  - Resource:
+      Item: {fileID: 11400000, guid: 23ea696e785289145b351b69d1084dca, type: 2}
+      Amount: 5
+    Ingredients:
+    - Item: {fileID: 11400000, guid: 23da4d65e8956284fb5296e2cc6a4f0a, type: 2}
+      Amount: 1
+    - Item: {fileID: 11400000, guid: 1e44a650052b8784da4ea0074cacae53, type: 2}
+      Amount: 2

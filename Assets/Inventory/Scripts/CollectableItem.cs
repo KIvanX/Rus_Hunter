@@ -13,8 +13,8 @@ public class CollectableItem : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             var inventory = other.GetComponent<Inventory>();
-            inventory.AddItems(_item, _amount);
-            Destroy(gameObject);
+            if (inventory.AddItems(_item, _amount))
+                Destroy(gameObject);
         }
     }
 }
