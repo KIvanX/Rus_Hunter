@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InterfaceUI : MonoBehaviour
 {
-    public void UpdateUI()
+    public void OpenUI()
     {
         if (gameObject.activeSelf)
         {

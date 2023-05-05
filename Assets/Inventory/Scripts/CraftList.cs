@@ -47,4 +47,15 @@ public class CraftList : ScriptableObject, IEnumerable<CraftItem>
     {
         return (IEnumerator)GetEnumerator();
     }
+
+    public CraftItem GetCraftItem(string itemName)
+    {
+        foreach (var item in _craftList)
+        {
+            if (item.Resource.Item.Name == itemName)
+                return item;
+        }
+
+        return null;
+    }
 }

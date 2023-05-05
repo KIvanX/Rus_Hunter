@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62eabf8d40643a346a573568a4b30119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _item: {fileID: 11400000, guid: 23ea696e785289145b351b69d1084dca, type: 2}
+  _item: {fileID: 11400000, guid: 1e44a650052b8784da4ea0074cacae53, type: 2}
   _amount: 3
 --- !u!135 &68051295
 SphereCollider:
@@ -385,7 +385,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &81947775
 GameObject:
@@ -1351,7 +1351,8 @@ MonoBehaviour:
   - {fileID: 1262011457}
   _grid: {fileID: 937356709}
   _craftList: {fileID: 11400000, guid: 5336acb0568d9bf47a21b44fd2fdfb41, type: 2}
-  _craftItemPrefab: {fileID: 9063859933487764842, guid: 0217423c6adb61347b768b9fe71a485a, type: 3}
+  _craftItemPrefab: {fileID: 2743470892029238091, guid: 72ff619d28f07bd4cb1c2dac0a43333a, type: 3}
+  _inventory: {fileID: 5866666020305363844}
 --- !u!222 &293406476
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1736,7 +1737,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &463406594 stripped
 GameObject:
@@ -1944,6 +1945,7 @@ MonoBehaviour:
   characterStatus: {fileID: 11400000, guid: 78bac57f0c340b8469eee984532ccc8c, type: 2}
   cameraConfig: {fileID: 11400000, guid: bce61036182b72546a12934f2a6128da, type: 2}
   isLeftPivot: 0
+  isInventoryOpen: 0
   delta: 0
 --- !u!1 &528538967
 GameObject:
@@ -2477,7 +2479,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &638903736
 GameObject:
@@ -2991,7 +2993,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &737156612
 GameObject:
@@ -3713,7 +3715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62eabf8d40643a346a573568a4b30119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _item: {fileID: 11400000, guid: 23ea696e785289145b351b69d1084dca, type: 2}
+  _item: {fileID: 11400000, guid: 23da4d65e8956284fb5296e2cc6a4f0a, type: 2}
   _amount: 2
 --- !u!135 &902013936
 SphereCollider:
@@ -3791,7 +3793,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &902613079
 GameObject:
@@ -4233,6 +4235,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036085966}
   m_CullTransparentMesh: 1
+--- !u!1 &1055621674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1055621675}
+  - component: {fileID: 1055621677}
+  - component: {fileID: 1055621676}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1055621675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055621674}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.000015258789, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1055621676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055621674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1055621677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055621674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &1065368238
 GameObject:
   m_ObjectHideFlags: 0
@@ -11897,11 +11967,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 293406475}
         m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
-        m_MethodName: UpdateUI
-        m_Mode: 2
+        m_MethodName: OpenUI
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 5866666020305363844}
-          m_ObjectArgumentAssemblyTypeName: Inventory, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -11909,7 +11979,19 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 127913910}
         m_TargetAssemblyTypeName: InterfaceUI, Assembly-CSharp
-        m_MethodName: UpdateUI
+        m_MethodName: OpenUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 492243381}
+        m_TargetAssemblyTypeName: CameraHandler, Assembly-CSharp
+        m_MethodName: OnInventoryOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13826,7 +13908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slots: []
-  OnInventoryUpdate:
+  OnShortInventoryUpdate:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 382972899}
@@ -13836,6 +13918,21 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 5866666020305363844}
           m_ObjectArgumentAssemblyTypeName: Inventory, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnFullInventoryUpdate:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 293406475}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: UpdateUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
