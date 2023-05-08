@@ -13,6 +13,7 @@ public class CameraHandler : MonoBehaviour
     public CameraConfig cameraConfig;
     public bool isLeftPivot;
     public float delta;
+    public GameObject menu; 
 
     private float mouseX;
     private float mouseY;
@@ -25,7 +26,7 @@ public class CameraHandler : MonoBehaviour
 
     private void Update()
     {
-        FixedTick();
+        if (!menu.activeInHierarchy) FixedTick();
     }
 
     void FixedTick()
