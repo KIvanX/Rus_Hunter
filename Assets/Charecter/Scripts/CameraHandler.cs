@@ -14,6 +14,7 @@ public class CameraHandler : MonoBehaviour
     public bool isLeftPivot;
     public bool isInventoryOpen = false;
     public float delta;
+    public GameObject menu; 
 
     private float mouseX;
     private float mouseY;
@@ -26,7 +27,7 @@ public class CameraHandler : MonoBehaviour
 
     private void Update()
     {
-        FixedTick();
+        if (!menu.activeInHierarchy) FixedTick();
     }
 
     public void OnInventoryOpen()
