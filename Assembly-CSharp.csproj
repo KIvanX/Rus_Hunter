@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Inventory\Scripts\InterfaceUI.cs" />
      <Compile Include="Assets\Tom&apos;s Terrain Tools\Scripts\SpawnInArea.cs" />
      <Compile Include="Assets\Charecter\Scripts\CharacterIK.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -48,16 +49,16 @@
      <Compile Include="Assets\Tom&apos;s Terrain Tools\Scripts\ForceGrassDistanceInEditor.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
      <Compile Include="Assets\Tom&apos;s Terrain Tools\Scripts\TerrainQualitySettings.cs" />
-     <Compile Include="Assets\Scripts\DataHolder.cs" />
      <Compile Include="Assets\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Inventory\Scripts\ShortInventoryUI.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
-     <Compile Include="Assets\Charecter\Scripts\Menu.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
      <Compile Include="Assets\Tom&apos;s Terrain Tools\Example Data\Scripts\SimpleSmoothMouseLook.cs" />
      <Compile Include="Assets\Tom&apos;s Terrain Tools\2DTools\Scripts\CircleMoverSample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
+     <Compile Include="Assets\Charecter\Scripts\HPBar.cs" />
      <Compile Include="Assets\Charecter\Scripts\Props\CharacterStatus.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMPro_InstructionOverlay.cs" />
@@ -74,12 +75,18 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+     <Compile Include="Assets\Inventory\Scripts\Item.cs" />
+     <Compile Include="Assets\Inventory\Scripts\Resource.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
      <Compile Include="Assets\Tom&apos;s Terrain Tools\Scripts\PlaceOnSurfaceAtStart.cs" />
+     <Compile Include="Assets\Inventory\Scripts\Inventory.cs" />
+     <Compile Include="Assets\Inventory\Scripts\InventoryUI.cs" />
+     <Compile Include="Assets\Inventory\Scripts\Crafting.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
      <Compile Include="Assets\Charecter\Scripts\LookAtTarget.cs" />
      <Compile Include="Assets\Tom&apos;s Terrain Tools\2DTools\Scripts\Camera2DFollow.cs" />
+     <Compile Include="Assets\Inventory\Scripts\CraftList.cs" />
      <Compile Include="Assets\Tom&apos;s Terrain Tools\Scripts\KeepOnSurface.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
      <Compile Include="Assets\Charecter\Scripts\CharacterInput.cs" />
@@ -93,6 +100,9 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
+     <Compile Include="Assets\Inventory\Scripts\CollectableItem.cs" />
+     <Compile Include="Assets\Scripts\DataHolder.cs" />
+     <Compile Include="Assets\Scripts\Menu.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Tom&apos;s Terrain Tools\Example Data\Terragen Sources\README.txt" />

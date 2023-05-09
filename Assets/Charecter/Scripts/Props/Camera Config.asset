@@ -19,7 +19,7 @@ MonoBehaviour:
   minAngle: -35
   maxAngle: 70
   normalX: 0.4
-  normalY: 1.9
+  normalY: 1.7
   normalZ: -1.72
   aimX: 0.4
   aimY: 1.4

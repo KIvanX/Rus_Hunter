@@ -12,6 +12,7 @@ public class CameraHandler : MonoBehaviour
     public CharacterStatus characterStatus;
     public CameraConfig cameraConfig;
     public bool isLeftPivot;
+    public bool isInventoryOpen = false;
     public float delta;
     public GameObject menu; 
 
@@ -27,6 +28,17 @@ public class CameraHandler : MonoBehaviour
     private void Update()
     {
         if (!menu.activeInHierarchy) FixedTick();
+    }
+
+    public void OnInventoryOpen()
+    {
+        if (enabled)
+        {
+            enabled = false;
+            transform.rotation = character.rotation;
+        }
+        else
+            enabled = true;
     }
 
     void FixedTick()
