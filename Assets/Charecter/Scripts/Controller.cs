@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -33,17 +34,21 @@ public class Controller : MonoBehaviour
     public GameObject arrowPrefab;
 
     public UnityEvent<float> OnHPUpdate;
-    public UnityEvent OnInventoryOpen;
+    public UnityEvent OnDeath;
 
     void Start()
     {
         animator = GetComponent<Animator>();
         rigid_body = GetComponent<Rigidbody>();
-        speed = walkSpeed;
+        speed = GetCurrentSpeed();
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
+
+    public void Enable() => enabled = true;
+
+    public void Disable() => enabled = false;
 
     void Update()
     {
@@ -130,11 +135,6 @@ public class Controller : MonoBehaviour
         }
         #endregion
 
-        #region Inventory
-        if (Input.GetButtonDown("Inventory"))
-            OnInventoryOpen.Invoke();
-        #endregion
-
         UpdateMovement();
         UpdateAnimation();
         characterInput.InputUpdate();
@@ -195,6 +195,6 @@ public class Controller : MonoBehaviour
         OnHPUpdate.Invoke(HP);
 
         if (HP <= 0)
-            Application.Quit();
+            OnDeath.Invoke();
     }
 }

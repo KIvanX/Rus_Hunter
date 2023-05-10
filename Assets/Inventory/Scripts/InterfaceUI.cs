@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class InterfaceUI : MonoBehaviour
 {
-    public void OpenUI()
+    public void Interact()
     {
         if (gameObject.activeSelf)
-        {
-            gameObject.SetActive(false);
-
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
+            Close();
         else
-        {
-            gameObject.SetActive(true);
+            Open();
+    }
 
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+    private void Open()
+    {
+        gameObject.SetActive(true);
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    private void Close()
+    {
+        gameObject.SetActive(false);
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

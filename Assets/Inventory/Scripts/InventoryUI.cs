@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -11,6 +12,9 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] private CraftList _craftList;
     [SerializeField] private Transform _craftItemPrefab;
     [SerializeField] private Inventory _inventory;
+
+    public UnityEvent OnInventoryOpen;
+    public UnityEvent OnInventoryClose;
 
     private void Start()
     {
@@ -25,19 +29,25 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    public void OpenUI()
+    public void Interact()
     {
         if (gameObject.activeSelf)
-        {
-            gameObject.SetActive(false);
-            Time.timeScale = 1.0f;
-        }
+            Close();
         else
-        {
-            gameObject.SetActive(true);
-            Time.timeScale = 0;
-            UpdateUI();
-        }
+            Open();
+    }
+
+    private void Open()
+    {
+        gameObject.SetActive(true);
+        UpdateUI();
+        OnInventoryOpen.Invoke();
+    }
+
+    private void Close()
+    {
+        gameObject.SetActive(false);
+        OnInventoryClose.Invoke();
     }
 
     public void UpdateUI()

@@ -41,9 +41,5 @@ public class DayCircle : MonoBehaviour
         Sun.transform.localRotation = Quaternion.Euler(time_of_day * 360, 180, 0);
         Sun.intensity = sun_intensity * sun_curve.Evaluate(time_of_day);
         Moon.transform.localRotation = Quaternion.Euler(time_of_day * 360 + 180, 180, 0);
-
-        if (Input.GetButtonDown("menu")) {
-            menu.SetActive(true);
-        }
     }
 }

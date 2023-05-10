@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraHandler : MonoBehaviour
@@ -8,13 +9,13 @@ public class CameraHandler : MonoBehaviour
     public Transform pivot;
     public Transform character;
     public Transform mainTranform;
+    public Transform targetLook;
 
     public CharacterStatus characterStatus;
     public CameraConfig cameraConfig;
     public bool isLeftPivot;
     public bool isInventoryOpen = false;
     public float delta;
-    public GameObject menu; 
 
     private float mouseX;
     private float mouseY;
@@ -25,21 +26,16 @@ public class CameraHandler : MonoBehaviour
     private float lookAngle;
     private float titleAngle;
 
+    private bool isRotate = true;
+
     private void Update()
     {
-        if (!menu.activeInHierarchy) FixedTick();
+        FixedTick();
     }
 
-    public void OnInventoryOpen()
-    {
-        if (enabled)
-        {
-            enabled = false;
-            transform.rotation = character.rotation;
-        }
-        else
-            enabled = true;
-    }
+    public void Enable() => isRotate = true;
+
+    public void Disable() => isRotate = false;
 
     void FixedTick()
     {
@@ -84,6 +80,9 @@ public class CameraHandler : MonoBehaviour
 
     void HandleRotation()
     {
+        if (!isRotate)
+            return;
+
         mouseX = Input.GetAxis("Mouse X");
         mouseY = Input.GetAxis("Mouse Y");
 

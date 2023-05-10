@@ -20,7 +20,7 @@ public class Wolf_controller : MonoBehaviour, IEnemy
         Player = GameObject.FindGameObjectWithTag("Player");
         playerController = Player.GetComponent<Controller>();
     }
-    
+
     void FixedUpdate()
     {
         float Dist_Player = Vector3.Distance(Player.transform.position, gameObject.transform.position);
