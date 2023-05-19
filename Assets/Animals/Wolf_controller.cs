@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class Wolf_controller : MonoBehaviour, IEnemy
 {
     public float HP { get; set; } = 50;
+    public GameObject Meat;
     private UnityEngine.AI.NavMeshAgent AI_Agent;
     private GameObject Player;
     private Animator animator;
     private bool is_attack = false;
     private float timeLeft = 0f;
+    
     private Controller playerController;
 
     void Start()
@@ -24,8 +26,10 @@ public class Wolf_controller : MonoBehaviour, IEnemy
     void FixedUpdate()
     {
         float Dist_Player = Vector3.Distance(Player.transform.position, gameObject.transform.position);
-        if (Dist_Player > 1 && Dist_Player < 10)
+        float dist = 8 + DataHolder.complexity * 10;
+        if (Dist_Player > 1 && Dist_Player < (DataHolder.is_night ? dist * 1.5 : dist))
         {
+            AI_Agent.speed = 3 + DataHolder.complexity * 3;
             AI_Agent.SetDestination(Player.transform.position);
             animator.SetFloat("speed", 1f);
         }
@@ -44,7 +48,8 @@ public class Wolf_controller : MonoBehaviour, IEnemy
             if (timeLeft < 0)
             {
                 timeLeft = 1.3f;
-                playerController.TakeDamage(10f);
+                float damage = 5 + DataHolder.complexity * 10;
+                playerController.TakeDamage(DataHolder.is_night ? damage * 2 : damage);
             }
         }
     }
@@ -52,7 +57,13 @@ public class Wolf_controller : MonoBehaviour, IEnemy
     public void TakeDamage(float damage)
     {
         HP -= damage;
-        if (HP <= 0)
+        if (HP <= 0) {
+            GameObject wolf_meat = Meat;
+            int amount = (int)(DataHolder.complexity * 3) + 1;
+            wolf_meat.GetComponent<CollectableItem>().amount = DataHolder.is_night ? amount * 2 : amount;
+            GameObject meat = Instantiate(Meat, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
+            DataHolder.num_wolfs = DataHolder.num_wolfs - 1;
+        }   
     }
 }

@@ -10,6 +10,8 @@ using UnityEngine.EventSystems;
 public class Menu : MonoBehaviour
 {
     public GameObject menu;
+    public GameObject settings;
+    public GameObject main;
 
     public Slider complexitySlider;
     public Slider daySpeedSlider;
@@ -51,6 +53,14 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void Settings()
+    {
+        settings.SetActive(true);
+        complexitySlider.value = DataHolder.complexity;
+        daySpeedSlider.value = DataHolder.day_speed;
+        main.SetActive(false);
+    }
+
     public void Exit()
     {
         Debug.Log("exit");
@@ -59,11 +69,11 @@ public class Menu : MonoBehaviour
 
     public void update_complexity() 
     {
-        DataHolder.set_complexity(complexitySlider.value);
+        DataHolder.complexity = complexitySlider.value;
     }
 
     public void update_day_speed() 
     {
-        DataHolder.set_day_speed(daySpeedSlider.value);
+        DataHolder.day_speed = daySpeedSlider.value;
     }
 }

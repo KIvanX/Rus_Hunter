@@ -31,13 +31,14 @@ public class Controller : MonoBehaviour
     public CharacterStatus characterStatus;
 
     public Transform arrowInHand;
-    public GameObject arrowPrefab;
-
+    public GameObject arrowPrefab, MenuObj;
+    private Menu menu;
     public UnityEvent<float> OnHPUpdate;
     public UnityEvent OnDeath;
 
     void Start()
     {
+        menu = MenuObj.GetComponent<Menu>();
         animator = GetComponent<Animator>();
         rigid_body = GetComponent<Rigidbody>();
         speed = GetCurrentSpeed();
@@ -194,7 +195,15 @@ public class Controller : MonoBehaviour
         HP -= damage;
         OnHPUpdate.Invoke(HP);
 
-        if (HP <= 0)
+        if (HP <= 0) {
             OnDeath.Invoke();
+            menu.New_game();
+        }
+    }
+
+    public void TakeHeal(float df)
+    {
+        if (HP < 100) HP += df;
+        OnHPUpdate.Invoke(HP);
     }
 }
