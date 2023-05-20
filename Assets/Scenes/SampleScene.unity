@@ -12131,6 +12131,8 @@ MonoBehaviour:
     m_PostInfinity: 1
     m_RotationOrder: 4
   wolf_obj: {fileID: 1551338716542887614, guid: 5c782ea31657e0d44b9f1017dd797154, type: 3}
+  wood: {fileID: 68051293}
+  stone: {fileID: 902013934}
   terrain: {fileID: 1180983561}
   menu: {fileID: 1332390246}
 --- !u!4 &1851819239

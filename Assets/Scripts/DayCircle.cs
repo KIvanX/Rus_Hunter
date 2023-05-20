@@ -5,19 +5,23 @@ using UnityEngine.UI;
 
 public class DayCircle : MonoBehaviour
 {
+    public static int NUM_WOLFS = 15;
+    public static int NUM_RESOUCES = 100;
     public float time_of_day = 0.2f;
     public Light Sun;
     public Light Moon;
     public AnimationCurve sun_curve;
     private float sun_intensity;
     public GameObject wolf_obj;
+    public GameObject wood, stone;
     public Terrain terrain;
     public GameObject menu;
 
 
     void Start()
     {
-        for (int i=0; i<15; i++) create_wolf();
+        for (int i=0; i<NUM_RESOUCES; i++) create_resouce();
+        for (int i=0; i<NUM_WOLFS; i++) create_wolf();
         sun_intensity = 1;
     }
 
@@ -28,7 +32,7 @@ public class DayCircle : MonoBehaviour
         
         if (time_of_day < 0.6) DataHolder.is_night = false; else DataHolder.is_night = true;
 
-        if (DataHolder.num_wolfs < 15) {
+        if (DataHolder.num_wolfs < NUM_WOLFS) {
             if (Random.Range(0, 5) < 1f) create_wolf();
         }
 
@@ -49,5 +53,21 @@ public class DayCircle : MonoBehaviour
         float y = terrain.SampleHeight(new Vector3(x, 0f, z));
         GameObject wolf = Instantiate(wolf_obj, new Vector3(x, y, z), Quaternion.identity);
         DataHolder.num_wolfs = DataHolder.num_wolfs + 1;
+    }
+
+    void create_resouce() 
+    {
+        float x = 0, z = 0;
+        while (x + z < 100) 
+        {
+            x = Random.Range(0, 200f);
+            z = Random.Range(0, 200f);
+        }
+        float y = terrain.SampleHeight(new Vector3(x, 0f, z));
+        if (Random.Range(0, 2) < 1)
+            Instantiate(stone, new Vector3(x, y, z), Quaternion.identity);
+        else
+            Instantiate(wood, new Vector3(x, y, z), Quaternion.identity);
+        // DataHolder.num_wolfs = DataHolder.num_wolfs + 1;
     }
 }
