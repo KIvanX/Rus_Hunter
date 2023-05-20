@@ -15,6 +15,7 @@ public class CollectableItem : MonoBehaviour
             var inventory = other.GetComponent<Inventory>();
             if (inventory.AddItems(_item, amount))
                 Destroy(gameObject);
+                DataHolder.num_resurces = DataHolder.num_resurces - 1;
         }
     }
 }

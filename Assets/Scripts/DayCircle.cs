@@ -32,9 +32,9 @@ public class DayCircle : MonoBehaviour
         
         if (time_of_day < 0.6) DataHolder.is_night = false; else DataHolder.is_night = true;
 
-        if (DataHolder.num_wolfs < NUM_WOLFS) {
-            if (Random.Range(0, 5) < 1f) create_wolf();
-        }
+        if (DataHolder.num_wolfs < NUM_WOLFS && Random.Range(0, 500) < 1f) create_wolf();
+        
+        if (DataHolder.num_resurces < NUM_RESOUCES && Random.Range(0, 100) < 1f) create_resouce();
 
         RenderSettings.fogDensity = sun_curve.Evaluate(time_of_day) * 0.03f;
         Sun.transform.localRotation = Quaternion.Euler(time_of_day * 360, 180, 0);
@@ -68,6 +68,6 @@ public class DayCircle : MonoBehaviour
             Instantiate(stone, new Vector3(x, y, z), Quaternion.identity);
         else
             Instantiate(wood, new Vector3(x, y, z), Quaternion.identity);
-        // DataHolder.num_wolfs = DataHolder.num_wolfs + 1;
+        DataHolder.num_resurces = DataHolder.num_resurces + 1;
     }
 }
