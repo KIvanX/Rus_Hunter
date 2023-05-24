@@ -6,18 +6,19 @@ using static Unity.VisualScripting.Member;
 
 public class ArrowController : MonoBehaviour
 {
-    private Rigidbody rb;
+    private Rigidbody _rb;
+    private float _damage = 15;
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        _rb = GetComponent<Rigidbody>();
         Destroy(gameObject, 60);
     }
 
     void FixedUpdate()
     {
-        if (rb.velocity != Vector3.zero)
-            transform.rotation = Quaternion.LookRotation(rb.velocity) * Quaternion.Euler(90, 0, 0);
+        if (_rb.velocity != Vector3.zero)
+            transform.rotation = Quaternion.LookRotation(_rb.velocity) * Quaternion.Euler(90, 0, 0);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -25,19 +26,20 @@ public class ArrowController : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player")
             && !collision.gameObject.CompareTag("Arrow"))
         {
-            rb.velocity = Vector3.zero;
-            rb.isKinematic = true;
+            _rb.velocity = Vector3.zero;
+            _rb.isKinematic = true;
         }
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
             transform.parent = collision.gameObject.transform;
-            collision.gameObject.GetComponent<IEnemy>().TakeDamage(25);
+            collision.gameObject.GetComponent<IEnemy>().TakeDamage(_damage);
         }
     }
 
-    public static void Shoot(GameObject arrow, Vector3 direction, float force)
+    public static void Shoot(GameObject arrow, Vector3 direction, float force, float damage)
     {
+        arrow.GetComponent<ArrowController>()._damage = damage;
         arrow.GetComponent<Rigidbody>().AddForce(direction * force, ForceMode.Impulse);
     }
 }

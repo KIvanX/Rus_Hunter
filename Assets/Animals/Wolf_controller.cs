@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Wolf_controller : MonoBehaviour, IEnemy
 {
-    public float HP { get; set; } = 50;
+    public float HP { get; set; }
     public GameObject Meat;
     private UnityEngine.AI.NavMeshAgent AI_Agent;
     private GameObject Player;
@@ -21,6 +21,8 @@ public class Wolf_controller : MonoBehaviour, IEnemy
         AI_Agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         Player = GameObject.FindGameObjectWithTag("Player");
         playerController = Player.GetComponent<Controller>();
+
+        HP = Random.Range(45, 75);
     }
 
     void FixedUpdate()
@@ -61,9 +63,9 @@ public class Wolf_controller : MonoBehaviour, IEnemy
             GameObject wolf_meat = Meat;
             int amount = (int)(DataHolder.complexity * 3) + 1;
             wolf_meat.GetComponent<CollectableItem>().amount = DataHolder.is_night ? amount * 2 : amount;
-            GameObject meat = Instantiate(Meat, gameObject.transform.position, Quaternion.identity);
+            Instantiate(Meat, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
-            DataHolder.num_wolfs = DataHolder.num_wolfs - 1;
+            DataHolder.num_wolfs--;
         }   
     }
 }

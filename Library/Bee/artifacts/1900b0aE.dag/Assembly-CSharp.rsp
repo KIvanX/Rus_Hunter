@@ -369,7 +369,6 @@
 "Assets/Scripts/DayCircle.cs"
 "Assets/Scripts/Enemy.cs"
 "Assets/Scripts/InterfaceManagement.cs"
-"Assets/Scripts/ItemController.cs"
 "Assets/Scripts/Menu.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
