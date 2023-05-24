@@ -8,7 +8,6 @@ TagManager:
   - Arrow
   - HP_bar
   - Enemy
-  - Door
   layers:
   - Default
   - TransparentFX
