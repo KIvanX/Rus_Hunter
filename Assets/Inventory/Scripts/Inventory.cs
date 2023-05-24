@@ -78,6 +78,27 @@ public class Inventory : MonoBehaviour, IEnumerable<Resource>
         return true;
     }
 
+    public bool FindItem(int id)
+        => _slots.Where(s => s.Item.Id == id).Any();
+
+    public bool UseItem(int id)
+    {
+        if (!FindItem(id))
+            return false;
+        
+        foreach (var slot in _slots)
+            if (slot.Item.Id == id)
+            {
+                slot.Amount -= 1;
+                break;
+            }
+
+		_slots = _slots.Where(s => s.Amount > 0).ToList();
+		OnShortInventoryUpdate.Invoke();
+		return true;
+
+	}
+
     public int GetSize()
     {
         return _slots.Count;

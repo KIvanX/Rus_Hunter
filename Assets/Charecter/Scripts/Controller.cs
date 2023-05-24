@@ -22,6 +22,7 @@ public class Controller : MonoBehaviour
     public bool on_ground = false;
     private Animator animator;
     private Rigidbody rigid_body;
+    private Inventory inventory;
     private Vector3 moveDirection;
     private Vector3 rotationDirection;
     public Transform start_ray;
@@ -41,6 +42,7 @@ public class Controller : MonoBehaviour
         menu = MenuObj.GetComponent<Menu>();
         animator = GetComponent<Animator>();
         rigid_body = GetComponent<Rigidbody>();
+        inventory = GetComponent<Inventory>();
         speed = GetCurrentSpeed();
 
         Cursor.visible = false;
@@ -109,14 +111,18 @@ public class Controller : MonoBehaviour
                 speed = walkSpeed;
             }
 
-            arrowInHand.gameObject.SetActive(true);
-            if (Input.GetButtonDown("Fire1"))
-                characterStatus.isStretching = true;
-            if (Input.GetButtonUp("Fire1"))
+            if (inventory.FindItem(1))
             {
-                GameObject newArrow = Instantiate(arrowPrefab, arrowInHand.position, arrowInHand.rotation);
-                ArrowController.Shoot(newArrow, arrowInHand.up, force * animator.GetFloat("drawForce"));
-                characterStatus.isStretching = false;
+                arrowInHand.gameObject.SetActive(true);
+                if (Input.GetButtonDown("Fire1"))
+                    characterStatus.isStretching = true;
+                if (Input.GetButtonUp("Fire1"))
+                {
+                    GameObject newArrow = Instantiate(arrowPrefab, arrowInHand.position, arrowInHand.rotation);
+                    ArrowController.Shoot(newArrow, arrowInHand.up, force * animator.GetFloat("drawForce"));
+                    characterStatus.isStretching = false;
+                    inventory.UseItem(1);
+                }
             }
         }
         else
@@ -150,6 +156,7 @@ public class Controller : MonoBehaviour
         animator.SetBool("isSprinting", characterStatus.isSprinting);
         animator.SetBool("isCrouching", characterStatus.isCrouching);
         animator.SetBool("isStretching", characterStatus.isStretching);
+        animator.SetBool("isArrow", inventory.FindItem(1));
     }
 
     void UpdateMovement()
