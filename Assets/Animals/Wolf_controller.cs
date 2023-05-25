@@ -11,7 +11,8 @@ public class Wolf_controller : MonoBehaviour, IEnemy
     private GameObject Player;
     private Animator animator;
     private bool is_attack = false;
-    private float timeLeft = 0f;
+    private float timeLeft = 1.5f;
+    private bool attacked = false;
     
     private Controller playerController;
 
@@ -22,26 +23,24 @@ public class Wolf_controller : MonoBehaviour, IEnemy
         Player = GameObject.FindGameObjectWithTag("Player");
         playerController = Player.GetComponent<Controller>();
 
-        HP = Random.Range(45, 75);
+        HP = Random.Range(20, 50);
     }
 
     void FixedUpdate()
     {
+        if (HP <= 0) return;
         float Dist_Player = Vector3.Distance(Player.transform.position, gameObject.transform.position);
-        float dist = 8 + DataHolder.complexity * 10;
-        if (Dist_Player > 1 && Dist_Player < (DataHolder.is_night ? dist * 1.5 : dist))
+        float dist = 10 + DataHolder.complexity * 5;
+        if (Dist_Player > 1 && (Dist_Player < (DataHolder.is_night ? dist * 1.5 : dist) || attacked))
         {
-            AI_Agent.speed = 3 + DataHolder.complexity * 3;
+            AI_Agent.speed = DataHolder.is_night ? 5 + DataHolder.complexity * 3 : 7 + DataHolder.complexity * 3;
             AI_Agent.SetDestination(Player.transform.position);
             animator.SetFloat("speed", 1f);
         }
         else 
             animator.SetFloat("speed", 0f);
 
-        if (Dist_Player > 1)
-            is_attack = false;
-        else 
-            is_attack = true;
+        is_attack = Dist_Player > 1.2 ? false : true;
         animator.SetBool("Attack", is_attack);
         
         if (is_attack) 
@@ -49,8 +48,8 @@ public class Wolf_controller : MonoBehaviour, IEnemy
             timeLeft -= Time.deltaTime;
             if (timeLeft < 0)
             {
-                timeLeft = 1.3f;
-                float damage = 5 + DataHolder.complexity * 10;
+                timeLeft = 1.5f;
+                float damage = 10 + DataHolder.complexity * 5;
                 playerController.TakeDamage(DataHolder.is_night ? damage * 2 : damage);
             }
         }
@@ -58,13 +57,17 @@ public class Wolf_controller : MonoBehaviour, IEnemy
 
     public void TakeDamage(float damage)
     {
+        if (HP <= 0) return;
+        attacked = true;
         HP -= damage;
         if (HP <= 0) {
             GameObject wolf_meat = Meat;
             int amount = (int)(DataHolder.complexity * 3) + 1;
             wolf_meat.GetComponent<CollectableItem>().amount = DataHolder.is_night ? amount * 2 : amount;
             Instantiate(Meat, gameObject.transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            Destroy(gameObject, 3.0f);
+            AI_Agent.speed = 0;
+            animator.Play("deathAnim");
             DataHolder.num_wolfs--;
         }   
     }

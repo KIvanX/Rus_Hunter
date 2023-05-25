@@ -45,7 +45,7 @@ public class DayCircle : MonoBehaviour
     void create_wolf() 
     {
         float x = 0, z = 0;
-        while (x + z < 100) 
+        while (x < 100 && z < 100) 
         {
             x = Random.Range(0, 200f);
             z = Random.Range(0, 200f);
@@ -58,13 +58,13 @@ public class DayCircle : MonoBehaviour
     void create_resouce() 
     {
         float x = 0, z = 0;
-        while (x + z < 100) 
+        while (x < 70 && z < 70) 
         {
             x = Random.Range(0, 200f);
             z = Random.Range(0, 200f);
         }
-        float y = terrain.SampleHeight(new Vector3(x, 0f, z));
-        if (Random.Range(0, 2) < 1)
+        float y = terrain.SampleHeight(new Vector3(x, 0f, z)) + 1;
+        if (Random.Range(0, 4) < 1)
             Instantiate(stone, new Vector3(x, y, z), Quaternion.identity);
         else
             Instantiate(wood, new Vector3(x, y, z), Quaternion.identity);
