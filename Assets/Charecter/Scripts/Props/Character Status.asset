@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562b9043510112b4f825071d9a908770, type: 3}
   m_Name: Character Status
   m_EditorClassIdentifier: 
-  isSprinting: 0
+  isSprinting: 1
   isAiming: 0
   isCrouching: 0
-  isStretching: 1
+  isStretching: 0
+  BowLevel: 2
+  BowDamage: 45

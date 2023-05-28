@@ -9,4 +9,7 @@ public class CharacterStatus : ScriptableObject
     public bool isAiming;
     public bool isCrouching;
     public bool isStretching;
+
+    public int BowLevel;
+    public float BowDamage;
 }

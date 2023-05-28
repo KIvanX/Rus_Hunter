@@ -16,7 +16,6 @@ public class Controller : MonoBehaviour
         force = 20;
     private float HP = 100;
     private float speed;
-    private float bowDamage = 15;
 
     public CharacterInput characterInput;
 
@@ -120,7 +119,7 @@ public class Controller : MonoBehaviour
                 if (Input.GetButtonUp("Fire1"))
                 {
                     GameObject newArrow = Instantiate(arrowPrefab, arrowInHand.position, arrowInHand.rotation);
-                    ArrowController.Shoot(newArrow, arrowInHand.up, force * animator.GetFloat("drawForce"), bowDamage);
+                    ArrowController.Shoot(newArrow, arrowInHand.up, force * animator.GetFloat("drawForce"), characterStatus.BowDamage);
                     characterStatus.isStretching = false;
                     inventory.UseItem(1);
                 }
