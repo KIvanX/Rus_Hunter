@@ -37,6 +37,9 @@ public class Controller : MonoBehaviour
     public UnityEvent<float> OnHPUpdate;
     public UnityEvent OnDeath;
 
+    [SerializeField]
+    private List<Resource> starterResourses;
+
     void Start()
     {
         menu = MenuObj.GetComponent<Menu>();
@@ -47,6 +50,9 @@ public class Controller : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        foreach (Resource resource in starterResourses)
+            inventory.AddItems(resource.Item, resource.Amount);
     }
 
     public void Enable() => enabled = true;
