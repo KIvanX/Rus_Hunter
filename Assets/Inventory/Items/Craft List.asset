@@ -15,9 +15,9 @@ MonoBehaviour:
   _craftList:
   - Resource:
       Item: {fileID: 11400000, guid: 23ea696e785289145b351b69d1084dca, type: 2}
-      Amount: 5
+      Amount: 2
     Ingredients:
     - Item: {fileID: 11400000, guid: 23da4d65e8956284fb5296e2cc6a4f0a, type: 2}
       Amount: 1
     - Item: {fileID: 11400000, guid: 1e44a650052b8784da4ea0074cacae53, type: 2}
-      Amount: 2
+      Amount: 1

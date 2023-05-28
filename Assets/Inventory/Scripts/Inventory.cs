@@ -9,30 +9,43 @@ public class Inventory : MonoBehaviour, IEnumerable<Resource>
     [SerializeField]
     private List<Resource> _slots = new();
     private const int _maxSize = 10;
+    private const int _stackSize = 99;
 
     public UnityEvent OnShortInventoryUpdate;
     public UnityEvent OnFullInventoryUpdate;
 
     public bool AddItems(Item item, int amount = 1)
     {
+        if ((amount + _slots.Where(r => r.Item.Id == item.Id).Sum(r => r.Amount)) / _stackSize >= 
+            _maxSize - _slots.Count + 1)
+            return false;
+
         foreach (Resource slot in _slots)
         {
-            if (slot.Item.Id == item.Id)
+            if (slot.Item.Id == item.Id && slot.Amount != _stackSize)
             {
-                slot.Amount += amount;
-                OnShortInventoryUpdate.Invoke();
-                return true;
-            }
+                if (slot.Amount + amount <= _stackSize)
+                {
+					slot.Amount += amount;
+					OnShortInventoryUpdate.Invoke();
+					return true;
+				}
+                else
+                {
+                    amount -= _stackSize - slot.Amount;
+					slot.Amount = _stackSize;
+				}
+			}
         }
 
-        if (_slots.Count < _maxSize)
-        {
-            _slots.Add(new Resource(item, amount));
-            OnShortInventoryUpdate.Invoke();
-            return true;
-        }
-
-        return false;
+		while (amount > _stackSize)
+		{
+            _slots.Add(new Resource(item, _stackSize));
+            amount -= _stackSize;
+		}
+		_slots.Add(new Resource(item, amount));
+		OnShortInventoryUpdate.Invoke();
+		return true;
     }
 
     public bool Craft(CraftItem craftItem)
