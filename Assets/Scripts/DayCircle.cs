@@ -21,7 +21,7 @@ public class DayCircle : MonoBehaviour
     void Start()
     {
         for (int i=0; i<NUM_RESOUCES; i++) create_resouce();
-        for (int i=0; i<NUM_WOLFS; i++) create_wolf();
+        for (int i=0; i<NUM_WOLFS; i++) create_wolf(1);
         sun_intensity = 1;
     }
 
@@ -32,7 +32,14 @@ public class DayCircle : MonoBehaviour
         
         if (time_of_day < 0.6) DataHolder.is_night = false; else DataHolder.is_night = true;
 
-        if (DataHolder.num_wolfs < NUM_WOLFS && Random.Range(0, 500) < 1f) create_wolf();
+        if (DataHolder.num_wolfs < NUM_WOLFS && Random.Range(0, 500) < 1f) 
+        {
+            if (DataHolder.evolution_wolfs > 0) 
+            {
+                create_wolf(DataHolder.evolution_levels[DataHolder.evolution_wolfs - 1]);
+                DataHolder.evolution_wolfs--;
+            } else create_wolf(1);
+        }
         
         if (DataHolder.num_resurces < NUM_RESOUCES && Random.Range(0, 100) < 1f) create_resouce();
 
@@ -42,7 +49,7 @@ public class DayCircle : MonoBehaviour
         Moon.transform.localRotation = Quaternion.Euler(time_of_day * 360 + 180, 180, 0);
     }
 
-    void create_wolf() 
+    void create_wolf(int level) 
     {
         float x = 0, z = 0;
         while (x < 100 && z < 100) 
@@ -51,7 +58,11 @@ public class DayCircle : MonoBehaviour
             z = Random.Range(0, 200f);
         }
         float y = terrain.SampleHeight(new Vector3(x, 0f, z));
-        GameObject wolf = Instantiate(wolf_obj, new Vector3(x, y, z), Quaternion.identity);
+        GameObject new_wolf_obj = wolf_obj;
+        new_wolf_obj.GetComponent<Wolf_controller>().level = level;
+        GameObject wolf = Instantiate(new_wolf_obj, new Vector3(x, y, z), Quaternion.identity);
+        float scale = 0.5f + level / 50f;
+        wolf.transform.localScale = new Vector3(scale, scale, scale);
         DataHolder.num_wolfs = DataHolder.num_wolfs + 1;
     }
 

@@ -13,7 +13,7 @@ public class Wolf_controller : MonoBehaviour, IEnemy
     private bool is_attack = false;
     private float timeLeft = 1.5f;
     private bool attacked = false;
-    
+    public int level = 1;
     private Controller playerController;
 
     void Start()
@@ -23,7 +23,7 @@ public class Wolf_controller : MonoBehaviour, IEnemy
         Player = GameObject.FindGameObjectWithTag("Player");
         playerController = Player.GetComponent<Controller>();
 
-        HP = Random.Range(20, 50);
+        HP = Random.Range(20, 50) + 5 * level;
     }
 
     void FixedUpdate()
@@ -33,7 +33,7 @@ public class Wolf_controller : MonoBehaviour, IEnemy
         float dist = 10 + DataHolder.complexity * 5;
         if (Dist_Player > 1 && (Dist_Player < (DataHolder.is_night ? dist * 1.5 : dist) || attacked))
         {
-            AI_Agent.speed = DataHolder.is_night ? 5 + DataHolder.complexity * 3 : 7 + DataHolder.complexity * 3;
+            AI_Agent.speed = DataHolder.is_night ? 4 + DataHolder.complexity * 3 : 7 + DataHolder.complexity * 3;
             AI_Agent.SetDestination(Player.transform.position);
             animator.SetFloat("speed", 1f);
         }
@@ -49,8 +49,8 @@ public class Wolf_controller : MonoBehaviour, IEnemy
             if (timeLeft < 0)
             {
                 timeLeft = 1.5f;
-                float damage = 10 + DataHolder.complexity * 5;
-                playerController.TakeDamage(DataHolder.is_night ? damage * 2 : damage);
+                float damage = 10 + DataHolder.complexity * 5 + level;
+                playerController.TakeDamage(DataHolder.is_night ? damage * 1.5f : damage);
             }
         }
     }
@@ -69,6 +69,8 @@ public class Wolf_controller : MonoBehaviour, IEnemy
             AI_Agent.speed = 0;
             animator.Play("deathAnim");
             DataHolder.num_wolfs--;
+            DataHolder.evolution_levels[DataHolder.evolution_wolfs] = level < 30 ? level + 1: level;
+            DataHolder.evolution_wolfs++;
         }   
     }
 }

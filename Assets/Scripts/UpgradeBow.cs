@@ -15,7 +15,7 @@ public class UpgradeBow : MonoBehaviour
 
 	public void UpdateBow()
 	{
-		var cost = 50 + _characterStatus.BowLevel * 50;
+		var cost = 20 + _characterStatus.BowLevel * 10;
 		if (_characterStatus.BowLevel < 20 && DataHolder.coins >= cost)
 		{
 			_characterStatus.BowLevel++;
@@ -32,7 +32,7 @@ public class UpgradeBow : MonoBehaviour
 
 		if (_characterStatus.BowLevel < 20)
 		{
-			transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = $"x{50 + _characterStatus.BowLevel * 50}";
+			transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = $"x{30 + _characterStatus.BowLevel * 10}";
 			transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = $"lv.{_characterStatus.BowLevel + 1}";
 		}
 		else
@@ -40,7 +40,7 @@ public class UpgradeBow : MonoBehaviour
 			transform.GetChild(2).gameObject.SetActive(false);
 			transform.GetChild(3).gameObject.SetActive(false);
 			transform.GetChild(5).gameObject.SetActive(false);
-			transform.GetChild(6).GetChild(0).GetComponent<TextMeshProUGUI>().text = "Макс. уровень";
+			transform.GetChild(6).GetChild(0).GetComponent<TextMeshProUGUI>().text = "пїЅпїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
 		}
 	}
 }

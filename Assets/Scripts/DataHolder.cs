@@ -11,6 +11,8 @@ public class DataHolder : MonoBehaviour
     public static int num_resurces { get; set; } = 0;
     public static bool is_night { get; set; } = false;
     public static int coins { get; set; } = 0;
+    public static int evolution_wolfs = 0;
+    public static int[] evolution_levels = new int[10];
 
     public static void update_coins(int new_value) {
         coins = new_value;
