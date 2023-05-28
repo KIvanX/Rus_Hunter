@@ -104,6 +104,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Tom&apos;s Terrain Tools\Scripts\PlaceOnSurfaceAtStart.cs" />
     <Compile Include="Assets\Inventory\Scripts\Inventory.cs" />
+    <Compile Include="Assets\Scripts\UpgradeBow.cs" />
     <Compile Include="Assets\Inventory\Scripts\InventoryUI.cs" />
     <Compile Include="Assets\Inventory\Scripts\Crafting.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
@@ -126,7 +127,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Inventory\Scripts\CollectableItem.cs" />
     <Compile Include="Assets\Scripts\InterfaceManagement.cs" />
-    <Compile Include="Assets\Scripts\UpgradeBow.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

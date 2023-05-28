@@ -13,7 +13,7 @@ public class DataHolder : MonoBehaviour
     public static int coins { get; set; } = 0;
 
     public static void update_coins(int new_value) {
-        coins = new_value;
+        coins = 10000;
         GameObject coins_text = GameObject.Find("Coins_text");
         coins_text.GetComponent<TMPro.TextMeshProUGUI>().text = new_value.ToString();
     }
