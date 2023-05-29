@@ -32,7 +32,7 @@ public class UpgradeBow : MonoBehaviour
 
 		if (_characterStatus.BowLevel < 20)
 		{
-			transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = $"x{30 + _characterStatus.BowLevel * 10}";
+			transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = $"x{20 + _characterStatus.BowLevel * 10}";
 			transform.GetChild(3).GetComponent<TextMeshProUGUI>().text = $"lv.{_characterStatus.BowLevel + 1}";
 		}
 		else

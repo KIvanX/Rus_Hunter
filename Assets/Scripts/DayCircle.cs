@@ -75,7 +75,7 @@ public class DayCircle : MonoBehaviour
             z = Random.Range(0, 200f);
         }
         float y = terrain.SampleHeight(new Vector3(x, 0f, z)) + 1;
-        if (Random.Range(0, 4) < 1)
+        if (Random.Range(0, 3) < 1)
             Instantiate(stone, new Vector3(x, y, z), Quaternion.identity);
         else
             Instantiate(wood, new Vector3(x, y, z), Quaternion.identity);
