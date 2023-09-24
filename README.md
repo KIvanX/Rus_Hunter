@@ -9,4 +9,4 @@
 * Исмагилов Булат - @bulka148
 * Хафизов Анджей - @Andjey44 
 
-![Скриншот](https://github.com/KIvanX/Rus_Hunter/raw/master/images/screenshot.png)
+![Скриншот](https://github.com/KIvanX/Rus_Hunter/blob/main/images/screenshot.png)
